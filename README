@@ -1,0 +1,8 @@
+This converts a JSON with location data into a GeoJSON and a map with points. To use, install 'jsontomap' then-
+
+To get GeoJSON:
+g = JSONToMap(input JSON, "field to geocode", "image field (or nil)", "name/title field")
+g.genmap
+
+To geocode starting point:
+g.geocodestart

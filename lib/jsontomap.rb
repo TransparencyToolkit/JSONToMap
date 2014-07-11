@@ -25,6 +25,7 @@ class JSONToMap
           i[@geocodefield].each do |g|
             geohash = Hash.new
             geohash["type"] = "Point"
+            begin
             cleaned = g.strip
             
             # Geocode
@@ -37,10 +38,10 @@ class JSONToMap
               @geotrack = 1
             end
 
-            begin
-              geohash["coordinates"] = [geocoded[1], geocoded[0]]
-              temphash["geometry"] = geohash
-              outarray.push(temphash)
+           
+            geohash["coordinates"] = [geocoded[1], geocoded[0]]
+            temphash["geometry"] = geohash
+            outarray.push(temphash)
             rescue
             end
           end
@@ -103,7 +104,7 @@ class JSONToMap
   # Get coordinates for start location
   def geocodestart(location)
     out = Geocoder.coordinates(location)
-    switched = [out[1], out[0]]
-    return switched
+    arr = [out[0], out[1]]
+    return arr
   end
 end

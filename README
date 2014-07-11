@@ -5,4 +5,4 @@ g = JSONToMap(input JSON, "field to geocode", "image field (or nil)", "name/titl
 g.genmap
 
 To geocode starting point:
-g.geocodestart
+g.geocodestart("location")
